@@ -1,0 +1,95 @@
+Linux terminal (GitBash) commands
+
+
+1) Посмотреть, где я			
+    pwd  (Present Working Directory)
+
+2) Создать папку			
+    mkdir folder_name
+
+3) Зайти в папку			
+    cd folder_name  (Change Directory)
+
+4) Создать 3 папки			
+    mkdir folder_1 folder_2 folder_3
+
+5) Зайти в любую папку			
+    cd folder_3
+
+6) Создать 5 файлов (3 txt, 2 json)	
+    touch file01.txt file02.txt file03.txt file04.json file05.json
+
+7) Создать 3 папки			
+    mkdir folder_11 folder_21 folder_31
+
+8) Вывести список содержимого папки	
+    ls -al ("ls -al folder_name/" для другой папки, не текущей)
+
+9) + Открыть любой txt файл		
+    cat file01.txt (команда просто открывает файл из текущей папки для просмотра содержимого)
+					
+    cat > file_name.txt (команда создаёт новый файл в текущей папке с возможностью тут же внести в него какое-то наполнение, т.е. текст)
+					
+    cat > folder_name/file_name.txt (команда создаёт новый файл в указанной папке с возможностью тут же внести в него какое-то наполнение, т.е. текст)
+
+10) + написать туда любой текст		
+    cat >> file01.txt (команда открывает содержимое файла с возможностью внести в него изменения, новый текст добавляется в конец файла)
+
+11) + сохранить и выйти			
+    сочетание клавиш Ctrl + C -> Enter
+
+12) Выйти из папки на уровень выше	
+    cd .. (cd ../../.. для выхода на несколько уровней выше)
+
+13) переместить любые 2 файла, которые вы создали, в любую другую папку		
+    mv folder_3/file02.txt folder_1/file02.txt
+    mv folder_3/file05.json folder_21/file222.json
+
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку
+    cp folder_1/file02.txt folder_11/file02.txt
+    cp folder_3/file04.json folder_21/file04.json
+
+15) Найти файл по имени			
+    find /PATH -name file_name.txt (/PATH указывает на начальную папку, из которой будет вестись поиск)
+
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает
+
+    https://habr.com/ru/post/229501/
+
+17) вывести несколько первых строк из текстового файла		
+    head -X file.txt либо head -n X file.txt (X - число строк)
+
+18) вывести несколько последних строк из текстового файла	
+    tail -X file.txt либо tail -n X file.txt (X - число строк)
+
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает.
+    less file_name.txt   выведет содержимое большого файла по частям для удобства навигации
+
+20) вывести дату и время		
+    date
+
+=========
+
+Задание *
+1) Отправить http запрос на сервер.
+http://162.55.220.72:5005/terminal-hw-request
+
+curl -is http://162.55.220.72:5005/terminal-hw-request
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+
+nano files-juggling.sh - Вход в оболочку GNU nano для создания скрипта
+
+#!/bin/bash
+cd /D/QA_Course
+mkdir folder_1 folder_2 folder_3
+cd folder_3
+touch file01.txt file02.txt file03.txt file04.json file05.json
+mkdir 1st_folder 2nd_folder 3rd_folder
+ls -al
+mv file01.txt ../folder_1/file01.txt
+mv file02.txt 2nd_folder/file88.txt
+
+Запуск скрипта: bash files-juggling.sh
+
+
